@@ -19,26 +19,69 @@ let setIntervalId;
 let quiz = [];
 let timer = 0;
 
-startBtn.addEventListener("click",()=>{
-    welcomePage.style.display="none";
-    popup.style.display="block"
-})
-continueBtn.addEventListener("click",()=>{
-    main.style.display="none";
-    quizSection.style.display="flex"
-})
 async function fetchQuizQuestion() {
     const response = await fetch("questions.json");
     const data = await response.json();
     quiz = data.quiz;
-    console.log(quiz);
+    // console.log(quiz);
   }
   fetchQuizQuestion();
 
-  const startQuiz=()=>{
-    Question=document.getElementById("question-text")
+  
+  function deleteChild() {
+    let e = document.querySelector("ul");
 
-
-   
+    //e.firstElementChild can be used. 
+    let child = e.lastElementChild;
+    while (child) {
+        e.removeChild(child);
+        child = e.lastElementChild;
+    }
+}
+startBtn.addEventListener("click",()=>{
+    welcomePage.style.display="none";
+    popup.style.display="block"
+  })
+  let index=0;
+continueBtn.addEventListener("click",()=>{
+  main.style.display="none";
+  quizSection.style.display="flex"
+  startQuiz(index)
+  })
+  
+  let optionList=document.querySelector(".option-list")
+  function startQuiz(index){
+    const questionText=document.querySelector(".question-text")
+  
+    questionText.textContent=`${quiz[index].question}`
+    for(i of quiz[index].options){
+      option=document.createElement('div');
+      optionList.append(option)
+      option.classList.add('option')
+      let spa= document.createElement('span')
+      option.append(spa)
+      spa.textContent=`${i}`
+      
+    } 
+    let questionTotal=document.querySelector('.question-total')
+questionTotal.textContent=`${index+1} of 10`
+      
   }
-  startQuiz()
+  function deleteChild() {
+    //e.firstElementChild can be used. 
+    let child = optionList.lastElementChild;
+    while (child) {
+        optionList.removeChild(child);
+        child = optionList.lastElementChild;
+    }
+}
+  const nextBtn=document.querySelector(".next-btn")
+  nextBtn.addEventListener('click',()=>{
+    if(index!=quiz.length-1){
+      deleteChild()
+      index+=1
+    startQuiz(index)
+    
+  }
+
+  })

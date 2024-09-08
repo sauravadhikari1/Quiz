@@ -163,7 +163,7 @@ padding: 10px;
     height: 100vh;
     width: 100vw;
     background-color:#09001d;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
@@ -247,11 +247,12 @@ padding: 10px;
     color:  rgba(255, 255,255, .3);
     font-weight: 600;
     cursor:pointer;
-    pointer-events: none;
+    /* pointer-events: none; */
     transition: .5s;
 
 }
 .quiz-footer .next-btn:hover{
     background: #c40094;
 border-color: #c40094 ;
+color: #fff;
 }
