@@ -3,7 +3,7 @@
     {
            "question": "What sport is considered the most popular in the world?",
            "options": ["Football", "Tennis", "Golf", "Basketball"],
-           "answer": "Fooballt"
+           "answer": "Football"
        },
        {
            "question": "Which team won the last World Hockey Championship?",

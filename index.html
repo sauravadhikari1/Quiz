@@ -2,15 +2,18 @@
 <html lang="en">
 
 <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Website HTML CSS JS | Codehal</title>
+    <title>Quiz </title>
+
     <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
-    <div class="container">
+    <div class="wrapper">
         
         <header class="header">
             <a href="#" class="logo">Quiz.</a>
@@ -56,6 +59,9 @@
         <div class="quiz-section">
                 <div class="quiz-box">
                     <h1> Quiz</h1>
+                    <div class="quiz-header">
+                        
+                    </div>
                     
                     <h2 class="question-text" id="question-text">Question</h2>
                     <div class="option-list">
@@ -67,6 +73,32 @@
                         <button class="next-btn">Next</button>
                     </div>
                 </div> 
+        </div>
+        <div class="result">
+    
+            <div class="result-container">
+                <h1>Your Result</h1>
+                
+                <!-- Score Display -->
+                <h2>Your Score: <span id="score-percent">85%</span></h2>
+                
+                <!-- Progress Bar -->
+                <div class="progress-bar">
+                    <div class="progress" id="progress" style="width: 85%;"></div>
+                </div>
+                
+                <!-- Feedback Message -->
+                <div class="feedback" id="feedback-message">
+                    <p>Great job! You’ve answered 17 out of 20 questions correctly.</p>
+                </div>
+                
+                <!-- Buttons -->
+                <div class="result-buttons">
+                    <button class="result-button again-btn" onclick="retryQuiz()">Try Again</button>
+                    <button class="result-button home-btn" onclick="goHome()">Home</button>
+                    
+                </div>
+            </div>
         </div>
     </div>
 </body>
